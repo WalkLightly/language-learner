@@ -1,0 +1,220 @@
+* {
+  font-family: "Space Grotesk", sans-serif !important;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url(./assets/forest.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+#results-container {
+  width: 95%;
+  margin-top: 10px;
+  height: 66vh;
+  overflow-y: auto;
+  background-color: transparent;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.learned-animation {
+  animation: learned 0.5s linear;
+}
+
+@keyframes learned {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  25% {
+    transform: rotateZ(90deg);
+  }
+
+  50% {
+    transform: scale(1.5) rotateZ(180deg);
+  }
+  75% {
+    transform: rotateZ(270deg);
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.results-item {
+  background-color: rgba(158, 180, 213, 0.3) !important;
+  backdrop-filter: blur(15px) !important;
+}
+
+#cardFront,
+#cardBack {
+  background-color: rgba(158, 180, 213, 0.3) !important;
+  backdrop-filter: blur(15px) !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.word-status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.good {
+  background-color: green !important;
+}
+.unsure {
+  background-color: yellow !important;
+}
+.new-word {
+  background-color: red !important;
+}
+
+.button {
+  background-color: #c4421a !important;
+  color: white !important;
+}
+
+.home-option-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.home-option {
+  height: 150px;
+  width: 150px;
+  background-color: rgb(158, 180, 213, 0.3) !important;
+  color: white !important ;
+  backdrop-filter: blur(8px);
+}
+
+#language-summary {
+  height: 100%;
+  width: 95%;
+  background-color: rgb(158, 180, 213, 0.3) !important;
+  backdrop-filter: blur(8px);
+}
+
+#drawer-navigation-box {
+  background-color: inherit !important;
+}
+
+.active-transfer {
+  animation: pulse 1s infinite;
+  opacity: 0.5;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1); /* Original size */
+  }
+  50% {
+    transform: scale(1.07); /* 10% larger */
+  }
+  100% {
+    transform: scale(1); /* Back to original size */
+  }
+}
+
+.frosty-mask {
+  background-color: rgba(88, 87, 87, 0.1) !important;
+  backdrop-filter: blur(7px);
+}
+
+#card-set-container {
+  background-color: rgb(158, 180, 213, 0.3) !important;
+  backdrop-filter: blur(8px);
+  margin-top: 10px;
+  padding-top: 10px;
+  height: 350px;
+}
+#wordsList {
+  position: relative;
+  z-index: 100;
+  width: 94%;
+  margin-left: 8px;
+}
+
+#effect {
+  position: absolute;
+  height: 85vh;
+  width: 95%;
+  background-color: rgba(158, 180, 213, 0.3) !important;
+  backdrop-filter: blur(15px) !important;
+  margin-left: 8px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+#flashcard-actions {
+  background-color: rgb(22, 89, 74, 0.35) !important;
+  /* background-color: rgba(151, 206, 204, 0.15) !important; */
+  backdrop-filter: blur(10px) !important;
+}
+#word-totals {
+  background-color: rgba(128, 193, 190, 0.35);
+  backdrop-filter: blur(10px) !important;
+}
+
+.transfer {
+  animation: transfer 0.4s linear forwards;
+}
+
+@keyframes transfer {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.card-move-right {
+  animation: move-right 0.3s linear;
+}
+
+.card-move-left {
+  animation: move-left 0.3s linear;
+}
+
+@keyframes move-right {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(500px) rotateZ(20deg);
+  }
+  100% {
+    transform: translateX(700px) rotateZ(20deg);
+  }
+}
+
+@keyframes move-left {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-500px) rotateZ(-20deg);
+  }
+  100% {
+    transform: translateX(-700px) rotateZ(-20deg);
+  }
+}
