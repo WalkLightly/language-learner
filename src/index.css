@@ -91,10 +91,13 @@ code {
   gap: 10px;
   margin-bottom: 10px;
 }
+.home-option-icon {
+  font-size: 80px !important;
+}
 
 .home-option {
-  height: 150px;
-  width: 150px;
+  height: 130px;
+  width: 130px;
   background-color: rgb(158, 180, 213, 0.3) !important;
   color: white !important ;
   backdrop-filter: blur(8px);
@@ -149,7 +152,7 @@ code {
 
 #effect {
   position: absolute;
-  height: 85vh;
+  height: 75vh;
   width: 95%;
   background-color: rgba(158, 180, 213, 0.3) !important;
   backdrop-filter: blur(15px) !important;

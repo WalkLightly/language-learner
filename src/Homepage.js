@@ -93,7 +93,10 @@ const Homepage = ({ currentLang }) => {
               className="home-option"
               sx={{ display: "flex", flexDirection: "column" }}
             >
-              <CategoryIcon sx={{ fontSize: "120px", color: "#c4421aa8" }} />
+              <CategoryIcon
+                className="home-option-icon"
+                sx={{ color: "#c4421aa8" }}
+              />
               <h5 style={{ marginTop: "-5px" }}>By Category</h5>
             </Button>
             <Button
@@ -101,7 +104,10 @@ const Homepage = ({ currentLang }) => {
               className="home-option"
               sx={{ display: "flex", flexDirection: "column" }}
             >
-              <AutoAwesomeIcon sx={{ fontSize: "120px", color: "#c4421aa8" }} />
+              <AutoAwesomeIcon
+                className="home-option-icon"
+                sx={{ color: "#c4421aa8" }}
+              />
               <h5 style={{ marginTop: "-5px" }}>New Words</h5>
             </Button>
           </div>
@@ -112,7 +118,8 @@ const Homepage = ({ currentLang }) => {
               sx={{ display: "flex", flexDirection: "column" }}
             >
               <QuestionMarkIcon
-                sx={{ fontSize: "120px", color: "#c4421aa8" }}
+                className="home-option-icon"
+                sx={{ color: "#c4421aa8" }}
               />
               <h5 style={{ marginTop: "-5px" }}>Unsure Words</h5>
             </Button>
@@ -121,7 +128,10 @@ const Homepage = ({ currentLang }) => {
               className="home-option"
               sx={{ display: "flex", flexDirection: "column" }}
             >
-              <CheckIcon sx={{ fontSize: "120px", color: "#c4421aa8" }} />
+              <CheckIcon
+                className="home-option-icon"
+                sx={{ color: "#c4421aa8" }}
+              />
               <h5 style={{ marginTop: "-5px" }}>Learned Words</h5>
             </Button>
           </div>
@@ -131,7 +141,10 @@ const Homepage = ({ currentLang }) => {
               className="home-option"
               sx={{ display: "flex", flexDirection: "column" }}
             >
-              <ShuffleIcon sx={{ fontSize: "120px", color: "#c4421aa8" }} />
+              <ShuffleIcon
+                className="home-option-icon"
+                sx={{ color: "#c4421aa8" }}
+              />
               <h5 style={{ marginTop: "-5px" }}>Random Learning</h5>
             </Button>
             <Button
@@ -139,7 +152,10 @@ const Homepage = ({ currentLang }) => {
               className="home-option"
               sx={{ display: "flex", flexDirection: "column" }}
             >
-              <TuneIcon sx={{ fontSize: "120px", color: "#c4421aa8" }} />
+              <TuneIcon
+                className="home-option-icon"
+                sx={{ color: "#c4421aa8" }}
+              />
               <h5 style={{ marginTop: "-5px" }}>Mixed Languages</h5>
             </Button>
           </div>
@@ -149,7 +165,10 @@ const Homepage = ({ currentLang }) => {
               className="home-option"
               sx={{ display: "flex", flexDirection: "column" }}
             >
-              <HistoryIcon sx={{ fontSize: "120px", color: "#c4421aa8" }} />
+              <HistoryIcon
+                className="home-option-icon"
+                sx={{ color: "#c4421aa8" }}
+              />
               <h5 style={{ marginTop: "-5px" }}>Recent</h5>
             </Button>
             <Button
@@ -157,7 +176,10 @@ const Homepage = ({ currentLang }) => {
               className="home-option"
               sx={{ display: "flex", flexDirection: "column" }}
             >
-              <StyleIcon sx={{ fontSize: "120px", color: "#c4421aa8" }} />
+              <StyleIcon
+                className="home-option-icon"
+                sx={{ color: "#c4421aa8" }}
+              />
               <h5 style={{ marginTop: "-5px" }}>Decks</h5>
             </Button>
           </div>

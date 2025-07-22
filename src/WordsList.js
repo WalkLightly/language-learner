@@ -36,7 +36,7 @@ const WordsList = ({ currentLang }) => {
   const [selectedWord, setSelectedWord] = useState("");
   const open = Boolean(anchorEl);
   const [results, setResults] = useState(null);
-  const [bottomToggleSection, setBottomToggleSection] = useState("card-sets");
+  const [bottomToggleSection, setBottomToggleSection] = useState("words");
 
   const colorMap = {
     Learned: "green",
@@ -154,6 +154,7 @@ const WordsList = ({ currentLang }) => {
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
+          height: "73vh",
         }}
       >
         <TextField
@@ -256,6 +257,7 @@ const WordsList = ({ currentLang }) => {
                   <React.Fragment key={result.word}>
                     <ListItem
                       style={{
+                        height: "30px",
                         borderLeft: `4px solid ${colorMap[result.status]}`,
                       }}
                       secondaryAction={

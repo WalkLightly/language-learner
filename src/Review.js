@@ -425,7 +425,7 @@ const Review = ({ currentLang }) => {
           elevation={4}
           sx={{
             marginTop: 2,
-            height: 250,
+            height: 200,
             width: "95%",
             borderLeftColor:
               cardSet && cardSet.words[index] !== undefined
@@ -475,7 +475,7 @@ const Review = ({ currentLang }) => {
           onClick={() => toggleFace(true)}
           sx={{
             marginTop: 2,
-            height: 250,
+            height: 200,
             width: "95%",
             borderLeftColor: cardSet
               ? colorMap[cardSet.words[index].status]
