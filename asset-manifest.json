@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.ffa70634.css",
-    "main.js": "/static/js/main.1b50e70f.js",
-    "static/js/453.5eddd2e2.chunk.js": "/static/js/453.5eddd2e2.chunk.js",
-    "static/media/forest.jpeg": "/static/media/forest.e89032f72a6bbddd27f2.jpeg",
-    "index.html": "/index.html",
-    "main.ffa70634.css.map": "/static/css/main.ffa70634.css.map",
-    "main.1b50e70f.js.map": "/static/js/main.1b50e70f.js.map",
-    "453.5eddd2e2.chunk.js.map": "/static/js/453.5eddd2e2.chunk.js.map"
+    "main.css": "/language-learner/static/css/main.d25f5bea.css",
+    "main.js": "/language-learner/static/js/main.26d9860a.js",
+    "static/js/453.5eddd2e2.chunk.js": "/language-learner/static/js/453.5eddd2e2.chunk.js",
+    "static/media/forest.jpeg": "/language-learner/static/media/forest.e89032f72a6bbddd27f2.jpeg",
+    "index.html": "/language-learner/index.html",
+    "main.d25f5bea.css.map": "/language-learner/static/css/main.d25f5bea.css.map",
+    "main.26d9860a.js.map": "/language-learner/static/js/main.26d9860a.js.map",
+    "453.5eddd2e2.chunk.js.map": "/language-learner/static/js/453.5eddd2e2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ffa70634.css",
-    "static/js/main.1b50e70f.js"
+    "static/css/main.d25f5bea.css",
+    "static/js/main.26d9860a.js"
   ]
 }
