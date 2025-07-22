@@ -534,7 +534,13 @@ const Review = ({ currentLang }) => {
       >
         <Button
           disabled={index === 0}
-          sx={{ bgcolor: "#c4421a", opacity: index > 0 ? 1 : 0.2 }}
+          sx={{
+            "&:hover": {
+              backgroundColor: "#c4421a",
+            },
+            bgcolor: "#c4421a",
+            opacity: index > 0 ? 1 : 0.2,
+          }}
           onClick={() => {
             moveCard(-1);
           }}
@@ -555,7 +561,13 @@ const Review = ({ currentLang }) => {
         </IconButton>
         <IconButton
           id="learned-btn"
-          sx={{ bgcolor: "green", color: "rgb(255,255,255)" }}
+          sx={{
+            bgcolor: "green",
+            color: "rgb(255,255,255)",
+            "&:hover": {
+              backgroundColor: "green",
+            },
+          }}
           onClick={() => changeStatus("Learned", /*cardSet.words[index]*/ "f")}
         >
           <CheckIcon />
@@ -566,6 +578,9 @@ const Review = ({ currentLang }) => {
         <Button
           disabled={cardSet !== null ? index >= cardSet.words.length - 1 : true}
           sx={{
+            "&:hover": {
+              backgroundColor: "#c4421a",
+            },
             backgroundColor: "#c4421a",
             opacity:
               cardSet !== null

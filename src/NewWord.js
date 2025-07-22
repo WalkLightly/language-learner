@@ -114,7 +114,14 @@ const NewWord = ({ currentLang, onCancel }) => {
   };
 
   return (
-    <Card sx={{ width: "90%", height: "fit-content", bgcolor: "#cfcfcf" }}>
+    <Card
+      sx={{
+        width: "90%",
+        marginLeft: "5%",
+        height: "fit-content",
+        bgcolor: "#cfcfcf",
+      }}
+    >
       <CardHeader
         sx={{ bgcolor: "rgb(158, 180, 213)", height: 15, color: "black" }}
         title="New Word"

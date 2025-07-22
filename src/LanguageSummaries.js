@@ -26,7 +26,7 @@ const LanguageSummaries = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "90vh",
+        height: "80vh",
         width: "100vw",
         marginTop: 5,
       }}

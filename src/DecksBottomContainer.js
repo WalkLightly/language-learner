@@ -21,16 +21,17 @@ const DecksBottomContainer = ({ language, status, selectCardSet }) => {
     });
   };
   return (
-    <div>
+    <div style={{ overflowY: "auto", height: "300px" }}>
       {/* Curent deck split up into groups of 3 */}
       <div
         className="results-item"
         style={{
-          height: 300,
+          height: 250,
           marginTop: 3,
           marginBottom: 5,
           width: "97vw",
           borderRadius: 5,
+          overflowY: "auto",
         }}
       >
         {selectedDeckWords && (

@@ -13,6 +13,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
+  overflow-y: auto;
 }
 
 #results-container {
@@ -141,7 +142,8 @@ code {
   backdrop-filter: blur(8px);
   margin-top: 10px;
   padding-top: 10px;
-  height: 350px;
+  height: 280px;
+  overflow-y: auto;
 }
 #wordsList {
   position: relative;

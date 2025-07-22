@@ -59,93 +59,94 @@ const BottomContainer = ({ words, selectCardSet, cardSetContext }) => {
             style={{
               display: "flex",
               flexWrap: "wrap",
-              gap: 10,
+              gap: 5,
               alignItems: "center",
               justifyContent: "center",
               height: "100%",
+              alignContent: "flex-start",
             }}
           >
             <Button
               onClick={() => setCards(0, 10)}
               variant="contained"
-              style={{ backgroundColor: "#16594a", height: 90, width: 90 }}
+              style={{ backgroundColor: "#16594a", height: 70, width: 70 }}
             >
               0-10
             </Button>
             <Button
               onClick={() => setCards(10, 20)}
               variant="contained"
-              style={{ backgroundColor: "#16594a", height: 90, width: 90 }}
+              style={{ backgroundColor: "#16594a", height: 70, width: 70 }}
             >
               10-20
             </Button>
             <Button
               onClick={() => setCards(20, 30)}
               variant="contained"
-              style={{ backgroundColor: "#16594a", height: 90, width: 90 }}
+              style={{ backgroundColor: "#16594a", height: 70, width: 70 }}
             >
               20-30
             </Button>
             <Button
               onClick={() => setCards(30, 40)}
               variant="contained"
-              style={{ backgroundColor: "#16594a", height: 90, width: 90 }}
+              style={{ backgroundColor: "#16594a", height: 70, width: 70 }}
             >
               30-40
             </Button>
             <Button
               onClick={() => setCards(40, 50)}
               variant="contained"
-              style={{ backgroundColor: "#16594a", height: 90, width: 90 }}
+              style={{ backgroundColor: "#16594a", height: 70, width: 70 }}
             >
               40-50
             </Button>
             <Button
               onClick={() => setCards(50, 60)}
               variant="contained"
-              style={{ backgroundColor: "#16594a", height: 90, width: 90 }}
+              style={{ backgroundColor: "#16594a", height: 70, width: 70 }}
             >
               50-60
             </Button>
             <Button
               onClick={() => setCards(60, 70)}
               variant="contained"
-              style={{ backgroundColor: "#16594a", height: 90, width: 90 }}
+              style={{ backgroundColor: "#16594a", height: 70, width: 70 }}
             >
               60-70
             </Button>
             <Button
               onClick={() => setCards(70, 80)}
               variant="contained"
-              style={{ backgroundColor: "#16594a", height: 90, width: 90 }}
+              style={{ backgroundColor: "#16594a", height: 70, width: 70 }}
             >
               70-80
             </Button>
             <Button
               onClick={() => setCards(80, 90)}
               variant="contained"
-              style={{ backgroundColor: "#16594a", height: 90, width: 90 }}
+              style={{ backgroundColor: "#16594a", height: 70, width: 70 }}
             >
               80-90
             </Button>
             <Button
               onClick={() => setCards(90, 100)}
               variant="contained"
-              style={{ backgroundColor: "#16594a", height: 90, width: 90 }}
+              style={{ backgroundColor: "#16594a", height: 70, width: 70 }}
             >
               90-100
             </Button>
             <Button
               onClick={() => setCards(100, null)}
               variant="contained"
-              style={{ backgroundColor: "#16594a", height: 90, width: 90 }}
+              style={{ backgroundColor: "#16594a", height: 70, width: 70 }}
             >
               100+
             </Button>
             <Button
               onClick={() => setCards(null, null)}
               variant="contained"
-              style={{ backgroundColor: "#16594a", height: 90, width: 90 }}
+              style={{ backgroundColor: "#16594a", height: 70, width: 70 }}
             >
               <ShuffleIcon sx={{ fontSize: "50px" }} />
             </Button>
@@ -162,7 +163,7 @@ const BottomContainer = ({ words, selectCardSet, cardSetContext }) => {
           </>
         )}
       </div>
-      <Paper
+      {/* <Paper
         sx={{
           display: "flex",
           bgcolor: "#16594a",
@@ -205,7 +206,7 @@ const BottomContainer = ({ words, selectCardSet, cardSetContext }) => {
             Sentences
           </ToggleButton>
         </ToggleButtonGroup>
-      </Paper>
+      </Paper> */}
     </>
   );
 };

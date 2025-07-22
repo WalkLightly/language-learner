@@ -8,6 +8,7 @@ import {
   Paper,
   Box,
   Skeleton,
+  Divider,
 } from "@mui/material";
 import CompareArrows from "@mui/icons-material/CompareArrows";
 import { GetWordsForDeckById, UpdateDeckIdForWords } from "./DeckApi";
@@ -118,18 +119,19 @@ const TransferDecksModal = ({ topDeckId, bottomDeckId, closeModal }) => {
       sx={{
         height: "fit-content",
         width: "95vw",
-        height: "95vh",
+        height: "80vh",
+        marginTop: 5,
       }}
     >
       <CardHeader
         sx={{ bgcolor: "purple", height: 15, color: "white" }}
         title="Transfer Between Decks"
       />
-      <CardContent style={{ height: "83%" }}>
+      <CardContent style={{ height: "75%" }}>
         <Paper
           elevation={5}
           sx={{
-            height: 300,
+            height: 200,
             width: "99%",
             display: "flex",
             flexWrap: "wrap",
@@ -227,20 +229,13 @@ const TransferDecksModal = ({ topDeckId, bottomDeckId, closeModal }) => {
             </div>
           )}
         </Paper>
-        <Box sx={{ mt: 1 }}>
-          Words In Deck: {topDeck?.words.length}
-          {topDeck?.words.length === 0 && (
-            <div style={{ color: "red", fontSize: 15, margin: 0 }}>
-              This deck will be deleted upon save
-            </div>
-          )}
-        </Box>
+        <Box sx={{ mt: 1 }}>Words In Deck: {topDeck?.words.length}</Box>
         <Box
           sx={{
             width: "100%",
             display: "flex",
             placeContent: "center",
-            mt: 2,
+            mt: "-15px",
             mb: 2,
           }}
         >
@@ -249,7 +244,7 @@ const TransferDecksModal = ({ topDeckId, bottomDeckId, closeModal }) => {
         <Paper
           elevation={5}
           sx={{
-            height: 300,
+            height: 200,
             width: "99%",
             display: "flex",
             flexWrap: "wrap",
@@ -257,6 +252,7 @@ const TransferDecksModal = ({ topDeckId, bottomDeckId, closeModal }) => {
             overflowX: "auto",
             alignContent: "flex-start",
             padding: "5px",
+            mt: "-10px",
           }}
         >
           {!loadingBottom &&
@@ -347,15 +343,9 @@ const TransferDecksModal = ({ topDeckId, bottomDeckId, closeModal }) => {
             </div>
           )}
         </Paper>
-        <Box sx={{ mt: 1 }}>
-          Words In Deck: {bottomDeck?.words.length}
-          {bottomDeck?.words.length === 0 && (
-            <div style={{ color: "red", fontSize: 15 }}>
-              This deck will be deleted upon save
-            </div>
-          )}
-        </Box>
+        <Box sx={{ mt: 1 }}>Words In Deck: {bottomDeck?.words.length}</Box>
       </CardContent>
+
       <CardActions
         sx={{
           display: "flex",

@@ -25,7 +25,7 @@ const CardsInSetListView = ({ closeModal, words }) => {
       />
       <CardContent
         style={{
-          maxHeight: "600px",
+          maxHeight: "500px",
           overflowY: "auto",
         }}
       >

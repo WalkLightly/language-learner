@@ -48,12 +48,14 @@ const RecentItems = ({ currentLang }) => {
         height: "94vh",
         width: "100vw",
         justifyContent: "center",
+        overflowY: "auto",
       }}
     >
       <div
         style={{
           height: "90%",
           width: "95%",
+          marginTop: "-50px",
         }}
       >
         <div style={{ color: "white", fontSize: 40 }}>Decks</div>
@@ -62,7 +64,7 @@ const RecentItems = ({ currentLang }) => {
           style={{
             padding: 10,
             gap: 5,
-            height: 300,
+            height: 250,
             borderRadius: 10,
             marginBottom: 60,
             display: "flex",
@@ -236,13 +238,18 @@ const RecentItems = ({ currentLang }) => {
             display: "flex",
             width: "100%",
             justifyContent: "space-between",
+            marginTop: "-50px",
           }}
         >
           <div>Words</div>
           <div>
             <Button
               variant="contained"
-              style={{ height: 40, marginTop: 3, backgroundColor: "#66410f" }}
+              style={{
+                height: 40,
+                marginBottom: 5,
+                backgroundColor: "#66410f",
+              }}
             >
               choose words
             </Button>
@@ -252,7 +259,7 @@ const RecentItems = ({ currentLang }) => {
           className="frosty-mask"
           style={{
             width: "100%",
-            height: 300,
+            height: 250,
             borderRadius: 10,
             display: "flex",
             flexWrap: "wrap",

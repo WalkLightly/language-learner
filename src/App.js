@@ -160,6 +160,10 @@ function App() {
       <Routes>
         <Route index element={<Homepage currentLang={language} />}></Route>
         <Route
+          path="language-learner"
+          element={<Homepage currentLang={language} />}
+        ></Route>
+        <Route
           path="review"
           element={<Review currentLang={language} />}
         ></Route>
