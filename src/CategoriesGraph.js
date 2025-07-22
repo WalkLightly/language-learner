@@ -14,7 +14,7 @@ const CategoriesGraph = ({ graphData, totalCategoriesCount }) => {
                 width: "30%",
                 textAlign: "right",
                 borderRight: "1px solid black",
-                height: 50,
+                height: 40,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "flex-end",
@@ -30,7 +30,7 @@ const CategoriesGraph = ({ graphData, totalCategoriesCount }) => {
                     data.count > 0
                       ? `${(data.count / totalCategoriesCount) * 100}%`
                       : "0px",
-                  height: "50px",
+                  height: "30px",
                   backgroundColor: "steelblue",
                 }}
               ></div>

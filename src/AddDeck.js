@@ -59,7 +59,6 @@ const AddDeck = ({ onCancel }) => {
 
   const addToList = (word, id) => {
     let tempWords = [];
-    console.log(wordsInDeck);
     if (wordsInDeck) {
       tempWords = wordsInDeck;
     }
@@ -87,7 +86,7 @@ const AddDeck = ({ onCancel }) => {
       sx={{
         height: "fit-content",
         width: "95vw",
-        height: "98vh",
+        height: "90vh",
       }}
     >
       <CardHeader
@@ -96,15 +95,15 @@ const AddDeck = ({ onCancel }) => {
       />
       <CardContent
         style={{
-          height: "85%",
+          height: "80%",
           overflowX: "hidden",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
         }}
       >
-        <Paper elevation={8} sx={{ height: 510, width: "104%", mb: 1 }}>
-          <div style={{ height: 310, width: "100%" }}>
+        <Paper elevation={8} sx={{ height: 450, width: "104%", mb: 1 }}>
+          <div style={{ height: 210, width: "100%" }}>
             <div
               style={{
                 display: "flex",
@@ -129,7 +128,7 @@ const AddDeck = ({ onCancel }) => {
               />
               <div
                 style={{
-                  height: 270,
+                  height: 170,
                   overflowY: "auto",
                   marginTop: 1,
                   paddingTop: 5,
@@ -237,7 +236,7 @@ const AddDeck = ({ onCancel }) => {
                     const tempWords = wordsInDeck.filter((x) => x.id !== w.id);
                     setWordsInDeck(tempWords);
                   }}
-                  style={{ width: "5px", marginRight: "5px" }}
+                  style={{ width: "fitContent", marginRight: "5px" }}
                   key={`${w.word}=${w.id}`}
                 >
                   {w.word}
@@ -248,10 +247,10 @@ const AddDeck = ({ onCancel }) => {
         <Paper
           elevation={5}
           sx={{
-            height: 240,
-            width: "101%",
+            height: 120,
+            overflowX: "auto",
+            width: "100%",
             display: "flex",
-            flexWrap: "wrap",
             padding: "5px",
             gap: "4px",
           }}
@@ -278,8 +277,8 @@ const AddDeck = ({ onCancel }) => {
                     handleClick(e, deck);
                   }}
                   style={{
-                    width: "120px",
-                    height: "120px",
+                    width: "100px",
+                    height: "100px",
                     borderLeft: `4px solid ${colorMap[deck.status]}`,
                     backgroundColor: "rgb(158, 180, 213)",
                     display: "flex",
@@ -309,8 +308,8 @@ const AddDeck = ({ onCancel }) => {
                     alignItems: "center",
                     justifyContent: "center",
                     position: "relative",
-                    top: "-115px",
-                    left: "95px",
+                    top: "-105px",
+                    left: "90px",
                     backgroundColor: "#f98f45",
                   }}
                 >

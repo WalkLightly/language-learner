@@ -124,7 +124,7 @@ function App() {
             ))}
           </Select>
         </Paper>
-        <IconButton onClick={toggleDrawer(true)}>
+        <IconButton style={{ color: "white" }} onClick={toggleDrawer(true)}>
           <MenuIcon fontSize="large" />
         </IconButton>
         <Drawer

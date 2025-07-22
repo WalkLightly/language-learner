@@ -62,15 +62,15 @@ const CategoriesGraphCard = ({ onCancel, language }) => {
       sx={{
         height: "fit-content",
         width: "95vw",
-        height: "98vh",
+        height: "70vh",
         bgcolor: "#cfcfcf",
       }}
     >
       <CardHeader
         sx={{ bgcolor: "rgb(158, 180, 213)", height: 15, color: "black" }}
-        title="Category Beakdown"
+        title="Category Breakdown"
       />
-      <CardContent style={{ height: "85%", overflowY: "auto" }}>
+      <CardContent style={{ height: "75%", overflowY: "auto" }}>
         <CategoriesGraph
           graphData={graphData}
           totalCategoriesCount={categoriesTotalCount}
