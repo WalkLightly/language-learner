@@ -26,6 +26,7 @@ import DeleteWord from "./DeleteWord";
 import { GetWordsForLanguage, DeleteWordById } from "./WordApi";
 import CategoriesGraphCard from "./CategoriesGraphCard";
 import DecksList from "./DecksList";
+import RefreshIcon from "@mui/icons-material/Refresh";
 
 const WordsList = ({ currentLang }) => {
   const [search, setSearch] = useState("");
@@ -101,50 +102,60 @@ const WordsList = ({ currentLang }) => {
   return (
     <>
       <Box style={{ display: "flex", gap: 20 }}>
-        <Paper
-          sx={{
+        <div
+          style={{
+            marginLeft: 10,
+            marginTop: 5,
             display: "flex",
-            bgcolor: "#16594a",
-            ml: 1,
-            mt: 2,
-            height: 40,
-            width: "fit-content",
+            gap: 5,
           }}
         >
-          <ToggleButtonGroup
-            size="small"
-            exclusive
-            value={bottomToggleSection}
-            onChange={handleBottomToggleChange}
+          <Paper
+            sx={{
+              bgcolor: "#16594a",
+              width: "fit-content",
+              height: 40,
+            }}
           >
-            <ToggleButton
-              sx={{
-                margin: 1,
-                border: "1px solid transparent",
-                "&.Mui-selected": {
-                  backgroundColor: "#f98f45",
-                  borderRadius: "5px!important",
-                },
-              }}
-              value="words"
+            <ToggleButtonGroup
+              size="small"
+              style={{ height: 40 }}
+              exclusive
+              value={bottomToggleSection}
+              onChange={handleBottomToggleChange}
             >
-              Words
-            </ToggleButton>
-            <ToggleButton
-              sx={{
-                margin: 1,
-                border: "1px solid transparent",
-                "&.Mui-selected": {
-                  backgroundColor: "#f98f45",
-                  borderRadius: "5px!important",
-                },
-              }}
-              value="card-sets"
-            >
-              Card Sets
-            </ToggleButton>
-          </ToggleButtonGroup>
-        </Paper>
+              <ToggleButton
+                sx={{
+                  margin: 1,
+                  border: "1px solid transparent",
+                  "&.Mui-selected": {
+                    backgroundColor: "#f98f45",
+                    borderRadius: "5px!important",
+                  },
+                }}
+                value="words"
+              >
+                Words
+              </ToggleButton>
+              <ToggleButton
+                sx={{
+                  margin: 1,
+                  border: "1px solid transparent",
+                  "&.Mui-selected": {
+                    backgroundColor: "#f98f45",
+                    borderRadius: "5px!important",
+                  },
+                }}
+                value="card-sets"
+              >
+                Card Sets
+              </ToggleButton>
+            </ToggleButtonGroup>
+          </Paper>
+          <Button variant="contained">
+            <RefreshIcon style={{ color: "white" }} />
+          </Button>
+        </div>
       </Box>
       <div id="effect"></div>
       <div
