@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/language-learner/static/css/main.d25f5bea.css",
-    "main.js": "/language-learner/static/js/main.26d9860a.js",
+    "main.js": "/language-learner/static/js/main.8028256f.js",
     "static/js/453.5eddd2e2.chunk.js": "/language-learner/static/js/453.5eddd2e2.chunk.js",
     "static/media/forest.jpeg": "/language-learner/static/media/forest.e89032f72a6bbddd27f2.jpeg",
     "index.html": "/language-learner/index.html",
     "main.d25f5bea.css.map": "/language-learner/static/css/main.d25f5bea.css.map",
-    "main.26d9860a.js.map": "/language-learner/static/js/main.26d9860a.js.map",
+    "main.8028256f.js.map": "/language-learner/static/js/main.8028256f.js.map",
     "453.5eddd2e2.chunk.js.map": "/language-learner/static/js/453.5eddd2e2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d25f5bea.css",
-    "static/js/main.26d9860a.js"
+    "static/js/main.8028256f.js"
   ]
 }
