@@ -28,6 +28,8 @@ import db from "./firebase";
 import LanguageSummaries from "./LanguageSummaries";
 import BookmarkedWords from "./RecentItems";
 import RecentItems from "./RecentItems";
+import { ListAlt } from "@mui/icons-material";
+import TodoList from "./TodoList";
 
 function App() {
   const [languages, setLanguages] = useState([]);
@@ -51,6 +53,11 @@ function App() {
       name: "Bookmarked Words",
       url: "bookmarked-words",
       icon: <BookmarkIcon />,
+    },
+    {
+      name: "TODO List",
+      url: "todo-list",
+      icon: <ListAlt />,
     },
   ];
 
@@ -180,6 +187,7 @@ function App() {
           element={<LanguageSummaries />}
         ></Route>
         {/* <Route path="bookmarked-words" element={<BookmarkedWords />}></Route> */}
+        <Route path="todo-list" element={<TodoList />}></Route>
       </Routes>
       <Outlet />
     </div>
