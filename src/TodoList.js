@@ -4,7 +4,7 @@ import { useState, React, useEffect } from "react";
 
 const TodoList = () => {
   return (
-    <div style={{ width: "98vw" }}>
+    <div style={{ width: "98%" }}>
       <Paper
         elevation={4}
         sx={{
@@ -29,7 +29,7 @@ const TodoList = () => {
             color: "white",
           }}
         >
-          TODO
+          TODOs
         </h2>
       </Paper>
       <Card
