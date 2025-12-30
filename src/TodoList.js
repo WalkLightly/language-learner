@@ -1,8 +1,44 @@
 import AddIcon from "@mui/icons-material/Add";
-import { Paper, Card, Fab } from "@mui/material";
+import { Paper, Card, Fab, Modal, IconButton } from "@mui/material";
+import { GetTodoItems, DeleteItem } from "./TodoApi";
 import { useState, React, useEffect } from "react";
+import NewTodoItem from "./NewTodoItem";
+import { DeleteOutline } from "@mui/icons-material";
 
 const TodoList = () => {
+  const [todoItems, setTodoItems] = useState([]);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [openModal, setOpenModal] = useState(false);
+  const open = Boolean(anchorEl);
+
+  const onClose = () => {
+    setAnchorEl(null);
+  };
+
+  const closeModal = (refreshList) => {
+    setOpenModal(false);
+
+    if (refreshList) {
+      fetchData();
+    }
+  };
+
+  const deleteItem = (id) => {
+    DeleteItem(id);
+
+    fetchData();
+  };
+
+  const fetchData = () => {
+    GetTodoItems().then((items) => {
+      setTodoItems(items);
+    });
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div
       style={{
@@ -48,50 +84,56 @@ const TodoList = () => {
           padding: 10,
         }}
       >
-        <Paper
-          elevation={5}
-          sx={{
-            width: "90%",
-            height: "auto",
-            justifySelf: "center",
-            mb: 2,
-            padding: 2,
-          }}
-        >
-          Make sure jamie knows that she is super beautiful, ad that there is no
-          one else Id want to marry come march 28th Make sure jamie knows that
-          she is super beautiful, ad that there is no one else Id want to marry
-          come march 28th Make sure jamie knows that she is super beautiful, ad
-          that there is no one else Id want to marry come march 28th Make sure
-          jamie knows that she is super beautiful, ad that there is no one else
-          Id want to marry come march 28th
-        </Paper>
-        <Paper
-          elevation={5}
-          sx={{
-            width: "90%",
-            height: "auto",
-            justifySelf: "center",
-            mb: 2,
-            padding: 2,
-          }}
-        >
-          Make sure jamie knows that she is super beautiful, ad that there is no
-          one else Id want to marry come march 28th Make sure jamie knows that
-          she is super beautiful, ad that there is no one else Id want to marry
-          come march 28th Make sure jamie knows that she is super beautiful, ad
-          that there is no one else Id want to marry come march 28th Make sure
-          jamie knows that she is super beautiful, ad that there is no one else
-          Id want to marry come march 28th
-        </Paper>
+        {todoItems &&
+          todoItems.map((item) => (
+            <Paper
+              key={item.id}
+              elevation={5}
+              sx={{
+                width: "90%",
+                height: "auto",
+                justifySelf: "center",
+                mb: 2,
+                padding: 2,
+              }}
+            >
+              <div>{item.value}</div>
+              <div
+                style={{
+                  marginLeft: "90%",
+                }}
+              >
+                <IconButton
+                  onClick={() => deleteItem(item.id)}
+                  style={{ color: "red" }}
+                >
+                  <DeleteOutline />
+                </IconButton>
+              </div>
+            </Paper>
+          ))}
       </Card>
       <Fab
+        onClick={() => setOpenModal(true)}
         color="primary"
         aria-label="add"
         sx={{ position: "absolute", bottom: 16, right: 16 }}
       >
         <AddIcon />
       </Fab>
+      <Modal
+        open={openModal}
+        onClose={closeModal}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div>
+          <NewTodoItem onCancel={closeModal} />
+        </div>
+      </Modal>
     </div>
   );
 };

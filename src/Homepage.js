@@ -49,7 +49,6 @@ const Homepage = ({ currentLang }) => {
     setAnchorEl(e.currentTarget);
   };
   const openModalMenu = (e, context) => {
-    console.log("clicked");
     setOpenModal(true);
     setModal(context);
   };

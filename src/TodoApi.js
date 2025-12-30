@@ -7,23 +7,23 @@ import {
   addDoc,
 } from "firebase/firestore";
 
-const GetItems = async () => {
+export const GetTodoItems = async () => {
   const items = [];
   const querySnapshot = await getDocs(collection(db, "todo-list"));
 
   querySnapshot.forEach((doc) => {
-    items.push(doc.data().name);
+    items.push({ id: doc.id, value: doc.data().text });
   });
 
   return items;
 };
 
-const AddNewItem = async (text) => {
+export const AddNewItem = async (text) => {
   await addDoc(collection(db, "todo-list"), {
     text,
   });
 };
 
-const DeleteItem = async (id) => {
+export const DeleteItem = async (id) => {
   await deleteDoc(doc(db, "todo-list", id));
 };

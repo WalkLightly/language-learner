@@ -86,7 +86,7 @@ const AddDeck = ({ onCancel }) => {
       sx={{
         height: "fit-content",
         width: "95vw",
-        height: "90vh",
+        height: "85vh",
       }}
     >
       <CardHeader
