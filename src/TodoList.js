@@ -4,11 +4,17 @@ import { useState, React, useEffect } from "react";
 
 const TodoList = () => {
   return (
-    <div style={{ width: "98%" }}>
+    <div
+      style={{
+        width: "98%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
       <Paper
         elevation={4}
         sx={{
-          justifySelf: "center",
           mr: 2,
           mt: 1,
           py: 2,
@@ -29,7 +35,7 @@ const TodoList = () => {
             color: "white",
           }}
         >
-          TODOs
+          TODO
         </h2>
       </Paper>
       <Card
@@ -38,7 +44,6 @@ const TodoList = () => {
           overflowY: "auto",
           height: 500,
           width: "90%",
-          justifySelf: "center",
           marginTop: 10,
           padding: 10,
         }}
