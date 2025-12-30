@@ -4,7 +4,7 @@ import { useState, React, useEffect } from "react";
 
 const TodoList = () => {
   return (
-    <div>
+    <div style={{ width: "98vw" }}>
       <Paper
         elevation={4}
         sx={{
@@ -37,15 +37,34 @@ const TodoList = () => {
         style={{
           overflowY: "auto",
           height: 500,
-          width: "93vw",
+          width: "90%",
           justifySelf: "center",
           marginTop: 10,
           padding: 10,
         }}
       >
         <Paper
+          elevation={5}
           sx={{
-            width: "95%",
+            width: "90%",
+            height: "auto",
+            justifySelf: "center",
+            mb: 2,
+            padding: 2,
+          }}
+        >
+          Make sure jamie knows that she is super beautiful, ad that there is no
+          one else Id want to marry come march 28th Make sure jamie knows that
+          she is super beautiful, ad that there is no one else Id want to marry
+          come march 28th Make sure jamie knows that she is super beautiful, ad
+          that there is no one else Id want to marry come march 28th Make sure
+          jamie knows that she is super beautiful, ad that there is no one else
+          Id want to marry come march 28th
+        </Paper>
+        <Paper
+          elevation={5}
+          sx={{
+            width: "90%",
             height: "auto",
             justifySelf: "center",
             mb: 2,
