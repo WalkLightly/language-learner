@@ -93,6 +93,7 @@ export const GetWordsForLanguage = async (language) => {
 
   querySnapshot.forEach((doc) => {
     const data = doc.data();
+
     const word = {
       category: data.category,
       definition: data.definition,
@@ -102,6 +103,7 @@ export const GetWordsForLanguage = async (language) => {
       unsureTimes: data.unsureTimes,
       word: data.word,
       id: doc.id,
+      deckId: data.deckId,
       numberValue: doc.numberValue,
     };
     words.push(word);

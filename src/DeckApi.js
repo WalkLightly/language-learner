@@ -7,6 +7,8 @@ import {
   query,
   doc,
   updateDoc,
+  addDoc,
+  deleteDoc,
 } from "firebase/firestore";
 
 export const GetAllDecks = () => {};
@@ -136,6 +138,37 @@ export const GetWordsForDeckById = async (deckId) => {
   });
 
   return words;
+};
+
+export const CreateNewDeck = async (language, status, wordIds = []) => {
+  const docRef = await addDoc(collection(db, "deck"), {
+    language: language,
+    status: status,
+  });
+  console.log(docRef.id, wordIds);
+
+  if (wordIds.length > 0) {
+    await UpdateDeckIdForWords(docRef.id, wordIds);
+  }
+  // now associate the words with the new deck
+};
+
+export const DeleteDeck = async (deckId) => {
+  await deleteDoc(doc(db, "deck", deckId));
+
+  const wordsQuerySnapshot = await getDocs(
+    query(collection(db, "words"), where("deckId", "==", deckId))
+  );
+
+  wordsQuerySnapshot.forEach((d) => {
+    const docRef = doc(db, "words", d.id);
+
+    updateDoc(docRef, {
+      deckId: "",
+    });
+  });
+
+  // find all the words with that deckId, and remove that association
 };
 
 export const UpdateDeckIdForWords = async (deckId, wordIds) => {

@@ -19,7 +19,7 @@ import {
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { GetAllDecksByLanguage } from "./DeckApi";
+import { GetAllDecksByLanguage, CreateNewDeck, DeleteDeck } from "./DeckApi";
 import { GetWordsForLanguage } from "./WordApi";
 
 import WordsList from "./WordsList";
@@ -31,31 +31,54 @@ const AddDeck = ({ onCancel }) => {
   const [results, setResults] = useState(null);
   const [loadingDecks, setLoadingDecks] = useState(true);
   const [loadingWords, setLoadingWords] = useState(true);
+  const [currentLanguage, setCurrentLanguage] = useState("");
+  const [clickedDeck, setClickedDeck] = useState();
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-
-  const handleClick = (event, deck) => {
-    console.log(deck);
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
   const colorMap = {
     Learned: "green",
     Unsure: "yellow",
     New: "red",
   };
+  const handleClick = (event, deck) => {
+    setClickedDeck(deck.id);
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = (action) => {
+    console.log(clickedDeck);
+    if (action === "delete") {
+      DeleteDeck(clickedDeck);
+    } else if (action === "edit") {
+    }
+    setAnchorEl(null);
+  };
 
   useEffect(() => {
-    GetAllDecksByLanguage("Italian").then((data) => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
+    setLoadingDecks(true);
+    const chosenLanguage = localStorage.getItem("language");
+
+    if (chosenLanguage !== null) {
+      setCurrentLanguage(chosenLanguage);
+    } else {
+      chosenLanguage = "Spanish";
+      setCurrentLanguage("Spanish");
+      localStorage.setItem("language", "Spanish");
+    }
+
+    GetAllDecksByLanguage(chosenLanguage).then((data) => {
       setDecks(data);
       setLoadingDecks(false);
     });
-    getWordsList();
-  }, []);
+
+    getWordsList(chosenLanguage);
+  };
 
   const addToList = (word, id) => {
     let tempWords = [];
@@ -72,14 +95,25 @@ const AddDeck = ({ onCancel }) => {
     setSearch(e.target.value);
   };
 
-  const getWordsList = () => {
-    GetWordsForLanguage("Italian").then((words) => {
+  const getWordsList = (language) => {
+    GetWordsForLanguage(language).then((words) => {
       setResults(words);
       setLoadingWords(false);
     });
   };
 
-  const addDeck = () => {};
+  const addDeck = () => {
+    const wordIds = [];
+
+    wordsInDeck.forEach((element) => {
+      wordIds.push(element.id);
+    });
+
+    CreateNewDeck(currentLanguage, "New", wordIds).then((words) => {});
+
+    fetchData();
+    //refresh the lists
+  };
 
   return (
     <Card
@@ -128,7 +162,7 @@ const AddDeck = ({ onCancel }) => {
               />
               <div
                 style={{
-                  height: 170,
+                  height: 150,
                   overflowY: "auto",
                   marginTop: 1,
                   paddingTop: 5,
@@ -180,7 +214,25 @@ const AddDeck = ({ onCancel }) => {
                                       justifyContent: "space-between",
                                     }}
                                   >
-                                    <div>{result.word}</div>
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: 10,
+                                      }}
+                                    >
+                                      <div>{result.word}</div>
+                                      {result.deckId && (
+                                        <div
+                                          style={{
+                                            height: 18,
+                                            width: 30,
+                                            borderRadius: 5,
+                                            backgroundColor: "steelblue",
+                                          }}
+                                        ></div>
+                                      )}
+                                    </div>
                                     <span
                                       style={{
                                         paddingTop: 5,
@@ -218,7 +270,7 @@ const AddDeck = ({ onCancel }) => {
             elevation={0}
             sx={{
               marginTop: "-12px",
-              height: 140,
+              height: 120,
               width: "94%",
               marginLeft: "4px",
               display: "flex",
@@ -247,7 +299,7 @@ const AddDeck = ({ onCancel }) => {
         <Paper
           elevation={5}
           sx={{
-            height: 120,
+            height: 130,
             overflowX: "auto",
             width: "100%",
             display: "flex",
@@ -335,7 +387,7 @@ const AddDeck = ({ onCancel }) => {
                   display: "flex",
                   gap: 30,
                 }}
-                onClick={handleClose}
+                onClick={() => handleClose("edit")}
               >
                 <span style={{ width: 60 }}>Edit</span>
                 <EditIcon />
@@ -343,7 +395,7 @@ const AddDeck = ({ onCancel }) => {
               <Divider />
               <MenuItem
                 style={{ opacity: 0.6, display: "flex", gap: 30 }}
-                onClick={handleClose}
+                onClick={() => handleClose("delete")}
               >
                 <span style={{ width: 60 }}>Delete</span>
                 <DeleteIcon />
