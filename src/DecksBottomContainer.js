@@ -36,7 +36,7 @@ const DecksBottomContainer = ({ language, status, selectCardSet }) => {
       >
         {selectedDeckWords && (
           <>
-            <h3 style={{ margin: "5px 12px" }}>
+            <h3 style={{ margin: "5px" }}>
               Total Words: {selectedDeckWords?.length}
             </h3>
             <CardSetList

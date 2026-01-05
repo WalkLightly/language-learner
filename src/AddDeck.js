@@ -16,15 +16,21 @@ import {
   Menu,
   MenuItem,
   MenuList,
+  FormControl,
+  InputLabel,
+  Select,
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { GetAllDecksByLanguage, CreateNewDeck, DeleteDeck } from "./DeckApi";
 import { GetWordsForLanguage } from "./WordApi";
+import { GetCategories } from "./CategoryApi";
 
 import WordsList from "./WordsList";
 
 const AddDeck = ({ onCancel }) => {
+  const [categories, setCategories] = useState([]);
+  const [category, setCategory] = useState("All categories");
   const [decks, setDecks] = useState(null);
   const [wordsInDeck, setWordsInDeck] = useState(null);
   const [search, setSearch] = useState("");
@@ -47,8 +53,11 @@ const AddDeck = ({ onCancel }) => {
     setAnchorEl(event.currentTarget);
   };
 
+  const changeCategory = (e) => {
+    setCategory(e.target.value);
+  };
+
   const handleClose = (action) => {
-    console.log(clickedDeck);
     if (action === "delete") {
       DeleteDeck(clickedDeck);
     } else if (action === "edit") {
@@ -61,6 +70,8 @@ const AddDeck = ({ onCancel }) => {
   }, []);
 
   const fetchData = () => {
+    getCategories();
+
     setLoadingDecks(true);
     const chosenLanguage = localStorage.getItem("language");
 
@@ -78,6 +89,14 @@ const AddDeck = ({ onCancel }) => {
     });
 
     getWordsList(chosenLanguage);
+  };
+
+  const getCategories = () => {
+    GetCategories().then((cats) => {
+      let allCats = ["All categories", ...cats];
+
+      setCategories(allCats);
+    });
   };
 
   const addToList = (word, id) => {
@@ -146,20 +165,44 @@ const AddDeck = ({ onCancel }) => {
                 flexDirection: "column",
               }}
             >
-              <TextField
-                value={search}
-                sx={{
-                  height: "40px",
-                  width: "95%",
-                  marginTop: 1,
-                  border: "1px solid #f98f45",
-                  borderRadius: "5px",
-                  "& fieldset": { border: "none" },
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-                onChange={searchForWord}
-              />
+              <div style={{ display: "flex", width: "95%" }}>
+                <TextField
+                  value={search}
+                  sx={{
+                    height: "40px",
+                    width: "60%",
+                    marginTop: 1,
+                    border: "1px solid #f98f45",
+                    borderRadius: "5px",
+                    "& fieldset": { border: "none" },
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                  onChange={searchForWord}
+                />
+                <FormControl
+                  sx={{
+                    ml: 1,
+                    width: "60%",
+                    borderRadius: "5px",
+                    mt: 1,
+                  }}
+                >
+                  <Select
+                    sx={{ height: 40 }}
+                    variant="standard"
+                    value={category}
+                    onChange={changeCategory}
+                    placeholder="Category"
+                  >
+                    {categories.map((category) => (
+                      <MenuItem value={category} key={category}>
+                        {category}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </div>
               <div
                 style={{
                   height: 150,
@@ -190,8 +233,14 @@ const AddDeck = ({ onCancel }) => {
                   <List sx={{ borderRadius: "5px", width: "87vw" }}>
                     {results &&
                       results
-                        .filter((word) =>
-                          word.word.toLowerCase().includes(search.toLowerCase())
+                        .filter(
+                          (word) =>
+                            word.word
+                              .toLowerCase()
+                              .includes(search.toLowerCase()) &&
+                            (category !== "All categories"
+                              ? word.category == category
+                              : word.category == word.category)
                         )
                         .map((result, index) => (
                           <React.Fragment key={result.word}>

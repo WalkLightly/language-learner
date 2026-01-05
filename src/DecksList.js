@@ -15,6 +15,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CompareArrows from "@mui/icons-material/CompareArrows";
 import TransferDecksModal from "./TransferDecksModal";
+import { DeleteDeck } from "./DeckApi";
 
 const DecksList = ({ currentLang }) => {
   const [decks, setDecks] = useState(null);
@@ -76,6 +77,7 @@ const DecksList = ({ currentLang }) => {
       setTransferMode(true);
       setDecksToTransfer([selectedDeck]);
     } else if (action === "delete") {
+      DeleteDeck(selectedDeck);
     } else {
     }
     setAnchorEl(null);

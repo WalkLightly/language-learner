@@ -39,6 +39,7 @@ import BottomContainer from "./BottomContainer";
 import CardsInSetListView from "./CardsInSetListView";
 import DecksBottomContainer from "./DecksBottomContainer";
 import { GetCategories } from "./CategoryApi";
+import { CompareArrows } from "@mui/icons-material";
 
 const Review = ({ currentLang }) => {
   const navigate = useNavigate();
@@ -529,7 +530,7 @@ const Review = ({ currentLang }) => {
           marginTop: 20,
           display: "flex",
           alignItems: "space-evenly",
-          gap: 20,
+          gap: 10,
         }}
       >
         <Button
@@ -574,6 +575,9 @@ const Review = ({ currentLang }) => {
         </IconButton>
         <IconButton sx={{ bgcolor: "rgb(158, 180, 213)", color: "white" }}>
           <HistoryIcon />
+        </IconButton>
+        <IconButton sx={{ bgcolor: "purple", color: "white" }}>
+          <CompareArrows />
         </IconButton>
         <Button
           disabled={cardSet !== null ? index >= cardSet.words.length - 1 : true}
